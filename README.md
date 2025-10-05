@@ -32,4 +32,15 @@ If you use our work or are inspired by our work, please cite our work:
   journal={arXiv preprint arXiv:2509.20645},
   year={2025}
 }
+
+@inproceedings{park2025can,
+    title = "Can {LLM}s Help Uncover Insights about {LLM}s? A Large-Scale, Evolving Literature Analysis of Frontier {LLM}s",
+    author = "Park, Jungsoo  and
+      Kang, Junmo  and
+      Stanovsky, Gabriel  and
+      Ritter, Alan",
+    year = "2025",
+    booktitle = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.acl-long.998/"
+}
 ```
