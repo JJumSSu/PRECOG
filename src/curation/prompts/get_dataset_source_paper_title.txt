@@ -1,0 +1,26 @@
+Your job is to identify the title of the dataset’s source paper that the given dataset in this PDF cites. 
+If the dataset originates from the provided paper, return the title of the given PDF.
+
+DEFINITIONS
+• “Dataset source paper” = the specific reference the authors cite for the dataset used in the experiment (typically the paper that introduced the dataset or the paper the authors explicitly cite when naming/using the dataset). Note that this paper can be the same as
+
+PROCEDURE
+1) Find the dataset’s citation in context
+   - Collect any in-text citations associated with the dataset mention (e.g., author–year or [#] markers).
+
+2) Map citations to the bibliography
+   - Resolve each collected in-text citation to its bibliography entry and extract the entry’s title.
+   - If the given PDF itself is the dataset’s source (the paper introduces the dataset and no external citation is used), return the given PDF’s own title.
+
+FAIL CONDITIONS → output “Failed” if ANY apply
+• The dataset name is ambiguous or not identifiable from the given paper.
+• No citation information for the dataset can be obtained from the paper, even though the given paper does not introduce the dataset.
+• You cannot map the dataset’s citation to a bibliography entry title, even though the given paper does not introduce the dataset.
+
+OUTPUT FORMAT
+Title: <TITLE OF THE DATASET PAPER>
+
+CONSTRAINTS
+• Return exactly one line in the specified format, or ““Failed””.
+• Do not include authors, year, DOIs, or commentary in the output.
+• Do not modify the name of the title.

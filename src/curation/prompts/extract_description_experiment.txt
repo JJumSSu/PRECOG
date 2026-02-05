@@ -1,0 +1,56 @@
+Your job is to produce a very detailed, self-contained, anonymized description of the specific experimental record (exact table row/cell) in a paper. 
+Use only the provided PDF. Keep the description maximally useful for modeling while preventing dataset re-identification.
+
+INPUTS
+
+• Main Paper (First PDF): contains the experiment to analyze. 
+• Dataset Source Paper (Second PDF): explains the dataset.
+• Experimental Record: {table LaTeX source, dataset name, subset name, model name, prompting configuration, metric, performance value}.
+    – “xx” denotes null/unknown values; ignore these when matching/identifying.
+
+PROCEDURE
+
+1.	Find the table that best matches the provided LaTeX (referencing the Main Paper)
+    • Identify the exact row/cell that corresponds to the Experimental Record by verifying metric, performance value, and the model name.
+2.	Extract the dataset/subset description specific to the matched row (referencing the Main Paper & Dataset Source Paper)
+    • Provide a paraphrased, anonymized description including only information explicitly stated in the provided PDFs        
+        – Task: what the task is (e.g., multiple choice, open-ended generation, classification with number of classes, span extraction); describe input/label format, answer space (e.g., number of classes) & format, and evaluation target.
+        – Data collection: how the data were collected (e.g., exams, textbooks, curated web crawls, dialogues).
+        – Evaluation: describe the metric and evaluation protocol used in the Experimental Record. If the paper lists multiple metrics, include only the one that matches the record.
+        – Difficulty characteristics: properties relevant to difficulty that are explicitly stated (e.g., number of classes/options, long context length, reasoning depth, multi-hop, domain & shift, ambiguity). Include only items that apply to the record’s dataset/subset.
+        – Subset: explain the subset used in the record (e.g., a coin flip split from BBH, a specific language such as French, or a topic-restricted split) only if explicitly stated for the given experimental record. Do not list other subsets.
+3.	Extract the description of experimental configuration the table cell corresponds to (referencing the Main Paper)
+    • Write a detailed paraphrase covering:
+        - Prompting strategy: the prompting strategy model used for the corresponding experimental record (zero-/few-shot/CoT, batch prompting, templates, in-context examples, decoding constraints)
+            - Draw the description from the Main Paper.
+        - Other settings: retrieval, context windows, truncation rules, tool usage, or other protocol details corresponding to the given record (or table) only if explicitly stated.
+            - Draw the description from the Main Paper.
+
+FAIL CONDITIONS — output exactly “Failed” if ANY apply
+• The given LaTex source table cannot be located inside the paper.
+• No detailed description of the dataset can be identified from the provided PDFs.
+• The dataset source paper is not the one that introduced the given dataset.
+• The targeted record evaluates a fine-tuned model or the evaluation was conducted using LLM.
+• The row is an aggregate (Average/Mean/All/Overall/Dev/Test/Valid).
+• The benchmark being used in the experiment aggregates heterogeneous tasks (e.g., MMLU, MMMU).
+
+OUTPUT FORMAT
+
+Dataset and Subset Description:
+• Task:
+• Data collection:
+• Evaluation:
+• Difficulty characteristics:
+• Subset:
+
+Experimental Configuration:
+• Prompting strategy:
+• Other settings:
+
+CONSTRAINTS
+
+• If a bullet has no explicit information in the provided PDFs, write “None.”
+• Don’t cite or refer to papers (e.g., “the paper states”, “the dataset source paper mentions”, "see evaluation"); present as your own.
+• Make the explanation self-contained so someone who hasn’t seen the PDFs can understand it.
+• Do NOT include: any proper nouns (dataset/subset/institution/URL/author), performances (metric values), exact counts (annotators, number of samples), collection years, or literal prompt/grammar strings.
+    • You may use exact counts for describing the number of classes.

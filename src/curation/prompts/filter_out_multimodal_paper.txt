@@ -1,0 +1,8 @@
+You are given the text content of a PDF paper (title, abstract, body, captions).
+
+Classify whether the paper is unimodal text-only or not. Output exactly one word: "yes" if the paper discusses ONLY the text modality (i.e., it is a text-only/unimodal paper), otherwise output exactly "no". No other text, punctuation, or explanation.
+
+Decision rules:
+- Output "yes" if the paper exclusively studies or uses text data (e.g., pure NLP tasks, language models, text-only datasets/benchmarks) and contains no experiments, evaluations, methods, or datasets involving non-text modalities.
+- Output "no" if the paper uses, evaluates, or focuses on any non-text modality (e.g., images, video, audio, speech, depth, sensors) or any combination of text with another modality (e.g., image+text, audio+video, cross-modal methods, multimodal fusion, multimodal pretraining).
+- If the paper mentions other-modality work only in passing but does not itself use or evaluate non-text modalities, treat it as text-only and output "yes".

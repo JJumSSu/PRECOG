@@ -1,0 +1,13 @@
+*.pdf
+*.jsonl
+*.pyc
+data
+temp.py
+analyze_online_prediction.py
+*sbatch
+src/temp
+src/baselines
+src/curation/dblp_session.json
+src/curation/get_stats.py
+src/curation/get_categories.py
+src/curation/prompts/classify_category.txt
