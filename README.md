@@ -1,25 +1,20 @@
-# Estimating LLM Benchmark Scores from Descriptions
+# Anticipatory Evaluation of Language Models
 
 🤗[Dataset](https://huggingface.co/datasets/jungsoopark/PRECOG) | 📄[Paper](https://arxiv.org/abs/2509.20645) 
 
 ## Introduction
 
-**Official repository for the paper:** [Look Before You Leap: Estimating LLM Benchmark Scores from Descriptions](https://www.arxiv.org/abs/2509.20645)
+**Official repository for the paper:** [Anticipatory Evaluation of Language Models](https://www.arxiv.org/abs/2509.20645)
 
 _PRECOG provides a standardized testbed to study early difficulty estimation and planning (what to run, where to measure) without incurring full evaluation cost._
 
-
 ### Repo Overview
-- **Data curation pipeline:** mines *description → performance* pairs from the literature (arXiv 2023–2024), with redaction and normalization.
-- **Baseline predictors:** reasoning LLMs with a **leakage-resistant retrieval module** to forecast scores from text only.
+- **Data curation pipeline:** mines *description → performance* pairs from the literature (arXiv 2023–2025), with redaction and normalization.
+    - You can find a detailed description of the curation pipeline in this [section](https://github.com/JJumSSu/PRECOG/tree/main/src/curation).
 
 ### Benchmark ([PRECOG](https://huggingface.co/datasets/jungsoopark/PRECOG)🔮)
 - **Task:** Given a redacted **natural-language description** of a task/evaluation setup, predict the **reported model score** *before* running any experiments.
 - **Dataset:** A corpus of redacted descriptions paired with literature-reported scores, curated to study text-only “description→performance” forecasting.
-
-## Notes
-
-**Code will be available soon.**
 
 ## Citation
 
